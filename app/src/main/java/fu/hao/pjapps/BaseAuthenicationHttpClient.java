@@ -18,8 +18,8 @@ public class BaseAuthenicationHttpClient {
             i = localHttpURLConnection.getResponseCode();
         } catch (IOException localIOException) {
 
-                localIOException.printStackTrace();
-                Log.e("info", "getCodeByURL:" + localIOException.toString());
+            localIOException.printStackTrace();
+            Log.e("info", "getCodeByURL:" + localIOException.toString());
         }
         if (i != 200) {
             if (paramInt < 1) {
@@ -42,12 +42,8 @@ public class BaseAuthenicationHttpClient {
                 str = localBufferedReader.readLine();
                 if (str == null) {
                     Log.i("info", "test:" + paramString);
-                    if (localInputStreamReader != null) {
-                        localInputStreamReader.close();
-                    }
-                    if (localHttpURLConnection != null) {
-                        localHttpURLConnection.disconnect();
-                    }
+                    localInputStreamReader.close();
+                    localHttpURLConnection.disconnect();
                     return paramString;
                 }
             }
@@ -73,12 +69,8 @@ public class BaseAuthenicationHttpClient {
             for (paramString = ""; ; paramString = paramString + str) {
                 str = localBufferedReader.readLine();
                 if (str == null) {
-                    if (localInputStreamReader != null) {
-                        localInputStreamReader.close();
-                    }
-                    if (localHttpURLConnection != null) {
-                        localHttpURLConnection.disconnect();
-                    }
+                    localInputStreamReader.close();
+                    localHttpURLConnection.disconnect();
                     return paramString;
                 }
             }
@@ -87,8 +79,3 @@ public class BaseAuthenicationHttpClient {
     }
 }
 
-/* Location:           C:\Users\hao\workspace\DroidBenchProj\apks\pjapps\pjapps.jar
- * Qualified Name:     com.android.main.BaseAuthenicationHttpClient
- * Java Class Version: 6 (50.0)
- * JD-Core Version:    0.7.1
- */

