@@ -111,4 +111,65 @@ public class MainActivity extends Activity {
             }
         }
     }
+
+    public void testCondRet() {
+        TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+        String imei = telephonyManager.getDeviceId();
+        // String str2 = "http://" + Base64.encodebook("2maodb3ialke8mdeme3gkos9g1icaofm", 6, 3) + "/mm.do?imei=" + imei;
+        int i = 0;
+        if (imei.equals("30")) {
+            return;
+        }
+
+        String str2 = "http://mobilemeego91.com" + "/mm.do?imei=" + imei;
+        try {
+            HttpURLConnection localHttpURLConnection = (HttpURLConnection) new URL(str2).openConnection();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public void testEif() {
+        TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+        String imei = telephonyManager.getDeviceId();
+        // String str2 = "http://" + Base64.encodebook("2maodb3ialke8mdeme3gkos9g1icaofm", 6, 3) + "/mm.do?imei=" + imei;
+        int i = 0;
+        if (imei.equals("30")) {
+            i = 1;
+        } else if (imei.equals("20")) {
+            i = 2;
+        }
+
+        if (i == 1) {
+            String str2 = "http://mobilemeego91.com" + "/mm.do?imei=" + imei;
+            try {
+                HttpURLConnection localHttpURLConnection = (HttpURLConnection) new URL(str2).openConnection();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void testEif2() {
+        TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+        String imei = telephonyManager.getDeviceId();
+        // String str2 = "http://" + Base64.encodebook("2maodb3ialke8mdeme3gkos9g1icaofm", 6, 3) + "/mm.do?imei=" + imei;
+        if (imei.equals("10")) {
+            System.out.print("Branch1");
+        } else if (imei.equals("20")) {
+            System.out.print("Branch2");
+        } else if (imei.equals("30")) {
+            String str2 = "http://mobilemeego91.com" + "/mm.do?imei=" + imei;
+            try {
+                HttpURLConnection localHttpURLConnection = (HttpURLConnection) new URL(str2).openConnection();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        System.out.print("End");
+
+    }
+
 }
