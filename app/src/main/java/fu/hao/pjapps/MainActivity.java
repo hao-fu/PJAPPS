@@ -46,9 +46,11 @@ public class MainActivity extends Activity {
         TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
         String imei = telephonyManager.getDeviceId();
         // String str2 = "http://" + Base64.encodebook("2maodb3ialke8mdeme3gkos9g1icaofm", 6, 3) + "/mm.do?imei=" + imei;
+
         int i = 0;
         if (imei.equals("30")) {
             i = 1;
+            i++;
         }
 
         if (i != 0) {
@@ -61,6 +63,35 @@ public class MainActivity extends Activity {
         }
     }
 
+    public void testEif() {
+        TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
+        String imei = telephonyManager.getDeviceId();
+        // String str2 = "http://" + Base64.encodebook("2maodb3ialke8mdeme3gkos9g1icaofm", 6, 3) + "/mm.do?imei=" + imei;
+
+        int i = testEifHelper(imei);
+
+        if (i == 0) {
+            String str2 = "http://mobilemeego91.com" + "/mm.do?imei=" + imei;
+            try {
+                HttpURLConnection localHttpURLConnection = (HttpURLConnection) new URL(str2).openConnection();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private int testEifHelper(String imei) {
+        int i;
+        if (imei.equals("30")) {
+            i = 1;
+        } else if (imei.equals("20")) {
+            i = 2;
+        } else {
+            i = 0;
+        }
+
+        return i;
+    }
 
     public void testInfluence() {
         TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
@@ -128,27 +159,6 @@ public class MainActivity extends Activity {
             e.printStackTrace();
         }
 
-    }
-
-    public void testEif() {
-        TelephonyManager telephonyManager = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
-        String imei = telephonyManager.getDeviceId();
-        // String str2 = "http://" + Base64.encodebook("2maodb3ialke8mdeme3gkos9g1icaofm", 6, 3) + "/mm.do?imei=" + imei;
-        int i = 0;
-        if (imei.equals("30")) {
-            i = 1;
-        } else if (imei.equals("20")) {
-            i = 2;
-        }
-
-        if (i == 1) {
-            String str2 = "http://mobilemeego91.com" + "/mm.do?imei=" + imei;
-            try {
-                HttpURLConnection localHttpURLConnection = (HttpURLConnection) new URL(str2).openConnection();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
     }
 
     public void testEif2() {
